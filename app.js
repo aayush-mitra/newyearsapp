@@ -52,12 +52,12 @@ function timeEvent() {
 
 
 function alertMe() {
-  let huh = prompt("Enter Starting Time:      ex. 60:00");
-  $('#thing').innerHTML = huh;
+
   let interval = setInterval(timeEvent, 1000);
 }
 
-
+let thetime = prompt("Starting Time: ");
+$('#thing').innerHTML = thetime;
 
 
 $('button').onclick = alertMe;
