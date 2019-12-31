@@ -55,5 +55,8 @@ function alertMe() {
   let interval = setInterval(timeEvent, 1000);
 }
 
+let huh = prompt("Enter Starting Time:      ex. 60:00");
+$('#thing').innerHTML = huh;
+
 
 $('button').onclick = alertMe;
