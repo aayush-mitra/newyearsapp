@@ -1,4 +1,4 @@
-function $(thing) {
+function select(thing) {
   let yo = document.querySelector(thing);
   return yo;
 }
@@ -35,16 +35,23 @@ function readOutLoud(message) {
   window.speechSynthesis.speak(speech);
 }
 
+function doStuff() {
+  $('.fireworks').fireworks();
+}
+
+
+
 function timeEvent() {
-  let hi = $('#thing');
+  let hi = select('#thing');
 
   if(convertMinutes(hi.innerHTML) > 0) {
     let the = convertMinutes(hi.innerHTML) - 1;
     let time = convertSeconds(the);
     hi.innerHTML = time;
   } else {
+
     readOutLoud('Happy New Year!');
-    $('#sound').play();
+    select('#sound').play();
     clearInterval(interval);
 
   }
@@ -54,10 +61,11 @@ function timeEvent() {
 function alertMe() {
 
   let interval = setInterval(timeEvent, 1000);
+  setTimeout(doStuff, convertMinutes(select('#thing').innerHTML) * 1000);
 }
 
 let thetime = prompt("Starting Time: ");
-$('#thing').innerHTML = thetime;
+select('#thing').innerHTML = thetime;
 
 
-$('button').onclick = alertMe;
+select('button').onclick = alertMe;
