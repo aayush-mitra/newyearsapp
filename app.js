@@ -28,7 +28,7 @@ function readOutLoud(message) {
 
   // Set the text and voice attributes.
   speech.text = message;
-  speech.volume = 10;
+  speech.volume = 500;
   speech.rate = 1;
   speech.pitch = 10;
 
@@ -43,6 +43,10 @@ function doStuff() {
 
 function timeEvent() {
   let hi = select('#thing');
+  if (convertMinutes(hi.innerHTML) === 55) {
+    select('#sound').play();
+  }
+
 
   if(convertMinutes(hi.innerHTML) > 0) {
     let the = convertMinutes(hi.innerHTML) - 1;
@@ -51,8 +55,9 @@ function timeEvent() {
   } else {
 
     readOutLoud('Happy New Year!');
-    select('#sound').play();
-    clearInterval(interval);
+    select('#thing2').innerHTML = 'Happy New Year!!!'
+    hi.innerHTML = '2021 LETS GOOOO'
+    //clearInterval(interval);
 
   }
 }
